@@ -8,7 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.work.dto.Member;
 import com.work.service.MemberService;
@@ -44,29 +46,8 @@ public class MemberController {
 	public String join(Member dto, Model model) {
 		System.out.println("회원가입요청");
 		System.out.println(dto);
-		
-		String memberId = dto.getMemberId();
-		String memberPw = dto.getMemberPw();
-		String name =  dto.getName();
-		String mobile =  dto.getMobile();
-		String email =  dto.getEmail();
-		
-		Map<String, String> dtoMap = new LinkedHashMap<String, String>();
-		dtoMap.put("memberId", memberId);
-		dtoMap.put("memberPw", memberPw);
-		dtoMap.put("name", name);
-		dtoMap.put("mobile", mobile);
-		dtoMap.put("email", email);
-		
-		System.out.println(dtoMap);
-		
-		if (dtoMap != null) {
-			model.addAttribute("message", "[회원가입 성공]" + name);
-		} else {
-			model.addAttribute("message", "[회원가입 실패]");
-		}
-		
-		return "result";
+		 
+		return null;
 	}
 	
 //	@RequestMapping("/login")
@@ -93,6 +74,29 @@ public class MemberController {
 		}
 		
 		return "result";
+	}
+	
+	@RequestMapping("/login/param")
+	public ModelAndView loginMap(
+			@RequestParam(value = "id") String memberId, 
+			@RequestParam(value = "pw") String memberPw) {
+		System.out.println(memberId + ", " + memberPw);
+		
+		// 응답위한 객체 생성 
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("message", "로그인정보");
+		mav.addObject("loginId", memberId);
+		mav.setViewName("result");
+		
+		return mav;
+	}
+	
+	@RequestMapping("/login/null")
+	public String loginNull(
+			@RequestParam(required = true, defaultValue = "user01") String memberId, 
+			@RequestParam(required = true, defaultValue = "password01") String memberPw) {
+		System.out.println(memberId + ", " + memberPw);
+		return "main";
 	}
 	
 //	@RequestMapping("/login")

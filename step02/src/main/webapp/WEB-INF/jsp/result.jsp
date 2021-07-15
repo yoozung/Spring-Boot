@@ -14,7 +14,7 @@
 <a href="main"><img src="/img/snu.jpg"></a>
 <a href="joinForm">회원가입</a>
 <a href="loginForm">로그인</a>
-<h3>home.html</h3>
+<h3> step02 </h3>
 
 <h3>메세지</h3>
 <C:if test="${not empty message}">
@@ -23,7 +23,9 @@
 <C:if test="${not empty loginId}">
 	${loginId}
 </C:if>
-<input type="submit" value="전체회원조회"/>
 
+<form action="selectMemberList">
+<input type="submit" value="전체회원조회"/>
+</form>
 </body>
 </html>

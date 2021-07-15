@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<!-- jstl -->    
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,7 @@
 <a href="main"><img src="/img/snu.jpg"></a>
 <a href="joinForm">회원가입</a>
 <a href="loginForm">로그인</a>
-<h3>home.html</h3>
+<h3> step02 </h3>
 
 <h3>회원가입</h3>
 <form action="join" method="post">
@@ -20,9 +22,9 @@
 	<input type="text" name="name" placeholder="이름" required="required"/>
 	<input type="text" name="mobile" placeholder="휴대폰" required="required"/>
 	<input type="text" name="email" placeholder="이메일" required="required"/>
-
 	<input type="submit" value="가입"/>
 	<input type="reset" value="취소"/>
+
 
 </form>
 </body>
