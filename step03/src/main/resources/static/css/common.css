@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* a config */
+a {text-decoration: none; }
+a:hover {color: lightgreen; }
+
+img {width: 300px; height: 230px;}
+
+
+/* form config : input 태그 block, margin 설정*/
+input {display:block; margin: 5px;}
+
+/* form config : input 태그 submit, reset, button inline 설정*/
+input[type="submit"], input[type="reset"] {display: inline; }
+
+tr, th, td {
+ 	padding: 5px;
+ 	color: navy;
+ 	border: 3px solid;
+ }
