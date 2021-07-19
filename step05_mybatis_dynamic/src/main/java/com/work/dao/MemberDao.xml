@@ -29,5 +29,27 @@
   
   <!-- 상세조회는 select * from member where memberid=~~로 -->
   
-  
+  <!-- 	public List<Member> selectMemberListByCondition(String condition, String keyword);
+  	select * from member where member_Id='user01';
+  	select * from member where grade='G';
+	select * from member where mileage>=10000;
+	keyword 미입력하면 전체회원조회, 즉 where 구문 지정하지 않음
+  -->
+  <select id="selectMemberListByCondition" resultType="Member" parameterType="map">
+   select * from member
+    <if test="keyword != null and keyword != ''">
+    	<where>
+    		<choose>
+    			<when test="condition == 'memberId'">member_id = #{keyword}</when>
+    			<when test="condition == 'grade'">grade = #{keyword}</when>
+    			<when test="condition == 'mileage'">mileage >= #{keyword}</when>
+    			<when test="condition == 'manager'">manager = #{keyword}</when>
+    			<when test="condition == 'mobile'">mobile like '%' || #{keyword}</when>
+    			<when test="condition == 'name'">name = #{keyword}</when>
+    			<when test="condition == 'email'">email = #{keyword}</when>
+    			<when test="condition == 'idEmail'">member_id = #{keyword} or email = #{keyword}</when>
+    		</choose>
+    	</where>
+    </if>
+  </select>
 </mapper>

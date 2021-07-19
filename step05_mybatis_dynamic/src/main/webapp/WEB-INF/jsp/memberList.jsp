@@ -13,9 +13,26 @@
 </head>
 <body>
 <a href="main"><img src="/img/snu.jpg"></a>
-<a href="joinForm">회원가입</a>
-<a href="loginForm">로그인</a>
-<a href="memberListForm">전체회원조회</a>
+<c:choose>
+	<c:when test="${empty memberId || empty dto}">
+		<a href="joinForm">회원가입</a>
+		<a href="loginForm">로그인</a>
+		
+	</c:when>
+	
+	<c:otherwise>
+		<div>로그인정보: ${memberId}[${dto.grade}]</div>
+		<a href="logout">로그아웃</a>
+		<a href="myInfo">내정보조회</a>
+		<a href="result">멤리스트</a>
+		
+		<!-- 관리자 권한 전체회원조회 서비스 제공 -->
+		<c:if test="${grade == 'A'}">
+			[관리자]<a href="memberList">전체회원조회</a>		
+		</c:if>
+
+	</c:otherwise>
+</c:choose>
 
 <!-- 다중조건검색 조각페이지 삽입 -->
 <jsp:include page="inc/multipleCondition.jsp"></jsp:include>
@@ -35,6 +52,12 @@
 		<th>담당자</th>	
 	</tr>
 	
+	<!-- 검색조건에 해당하는 결과가 없는 경우 메세지 출력 -->
+	<c:if test="${not empty message }">
+		<tr>
+			<th colspan=10>${message}</th>
+		</tr>
+	</c:if>
 	
 	<c:forEach var="dto" items="${list}" varStatus="status">
 		<tr>

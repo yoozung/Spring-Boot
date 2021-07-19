@@ -2,6 +2,7 @@ package com.work.controller;
 
 import java.util.Enumeration;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
@@ -116,6 +117,35 @@ public class MemberController {
 		session.invalidate();
 		return "main";
 	}
+	
+	@RequestMapping("/multipleCondition")
+	public String multipleCondition(String condition, String keyword, Model model) {
+		log.debug("### multipleCondition : "+ condition + ", " + keyword);
+	
+		List<Member> list = null;
+		
+		// 실습 변경 : condition 아이디인경우에 keyword에 "," 있으면 다중의 회원아이디에 대한 조건 검색 처리 
+		// => List<String> 또는 String[] 배열들 회원아이디 items 추출 분리하기
+		if (keyword.contains(",")) {
+			StringTokenizer st = new StringTokenizer(keyword, ",", false);
+			
+			//String[] memberIdList = 
+		
+		
+			list = memberService.memberListByConditionToList(condition, keyword);
+		}
+		
+		list = memberService.memberListByCondition(condition, keyword);
+		
+		if (list.isEmpty()) {
+			model.addAttribute("message", "검색 조건에 해당하는 데이터가 없습니다.");
+		}
+		
+		model.addAttribute("list", list);
+		return "memberList";
+
+	}
+	
 	
 	
 }
