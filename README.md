@@ -16,3 +16,7 @@
 **3일차**<br>
 - Mybatis, oracle 추가
 - xml 추가 및 사용
+
+**4일차**<br>
+-  Slf4j annotation 추가하여 로그 사용
+-  interceptor 구현
