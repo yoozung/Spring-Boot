@@ -20,3 +20,8 @@
 **4일차**<br>
 -  Slf4j annotation 추가하여 로그 사용
 -  interceptor 구현
+
+**5일차**<br>
+-  interceptor 환경 설정 클래스(WebMvcConfig) 작성
+-  다중조건 검색 기능
+-  동적 SQL
