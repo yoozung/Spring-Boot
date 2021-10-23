@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* Filename : css/common.css */
+
+.reviewList_div {
+	margin-top: 40
+}
+
+
+div.table-div {
+    width:100%;
+    height: 500px;
+    text-align:center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+/*    padding-left:10px;
+    padding-right:10px;*/
+/*    margin-left: 30px;
+    margin-right: 30px;*/
+    /* 중앙정렬 */
+/*    display: flex;
+    justify-content: center;*/
+}
+
+table.reviewList_table {
+    text-align:center;
+    float:left;
+/*    margin-left:30px;
+    margin-right:30px;*/
+    width:70%
+   /* margin-bottom: 50px;*/
+}
+
+table.reviewList_table td{
+	width: 70%;
+	
+}
