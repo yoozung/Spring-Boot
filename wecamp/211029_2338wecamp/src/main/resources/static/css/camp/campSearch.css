@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+#camp-container{
+	margin-left : 60px;
+	
+}
+#camp-container ul{
+	padding-right: 2rem;
+}
+
+#camp-container .toggle-box{
+	padding-bottom: 10px;
+	width:100%;
+	
+}
+
+#camp-container .sigungu-box{
+	padding-bottom: 10px;
+}
+
+#camp-list-container{
+	width: 100%;
+}
+
+/*도,시군구 박스 */
+.do-box{
+	border : 1px solid #FFE2E2;
+	padding : 5px;
+	margin-bottom : 10px;
+}
+.do-box > span{
+	color : #FF6B6B;
+}
+.do-list{
+	display: flex;
+}
+.do-list li{
+	margin-left: 8px;
+}
+.sigungu-list{
+	display:flex;
+}
+.sigungu-box{
+	border:1px solid #FFE2E2;
+}
+.sigungu-list li{
+	margin-left : 8px;
+}
+
+/*글씨*/
+.camp-info div{
+	padding-bottom: 4px;
+	font-weight: 400;
+}
+.camp-info .camp-intro{
+	color :  #9999B0;
+	font-size: 1.1rem;
+}
+
+.camp-info .camp-tel{
+	color : #12BDFF;
+}
+.camp-info .camp-title{
+	font-size: 1.3rem;
+	font-weight: 600;
+}
+
+/*이미지 박스 및 안에 내용물 설정*/
+.camp-img-box{
+	width: 310px;
+	height:310px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-radius: 15px;
+	box-shadow : 10px 10px 10px -5px rgba(25,42,70,0.2);
+}
+.camp-info{
+	margin-top : 10px;
+	width:310px;
+}
+.camp-inner{
+	display: flex;
+}
+.campsite-list{
+	margin-left: 73px;
+	margin-top : 10px;
+	transform : scale(0.9);
+	transition : all 0.3s ease-in-out;
+}
+.campsite-list:hover{
+	cursor : pointer;
+	transform : scale(1.0);
+}
+
+
+/*도, 시군구 선택 라디오 박스*/
+.box-radio-input input[type="radio"]{
+	display : none;
+}
+.box-radio-input input[type="radio"] + span{
+	display: inline-block;
+	background: none;
+	border : 1px solid #dfdfdf;
+	padding : 0px 10px;
+	text-align: center;
+	height: 35px;
+	line-height: 33px;
+	width : 130px;
+	font-size : 0.8rem;
+	font-weight: 500;
+	cursor: pointer;	
+}
+
+.box-radio-input input[type="radio"]:checked + span{
+	border : 1px solid #FF6B6B;
+	background : #FF6B6B;
+	color : #fff;
+}
+
+
+
+

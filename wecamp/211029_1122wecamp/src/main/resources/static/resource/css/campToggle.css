@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+/* 지역검색, 고급검색 */
+  .answer {
+    display: none;
+    padding-bottom: 30px;
+  }
+  #faq-title {
+    font-size: 25px;
+  }
+  .faq-content {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .question {
+    font-size: 19px;
+    padding: 30px 0;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+  }
+  .question:hover {
+    color: #2962ff;
+  }
+  [id$="-toggle"] {
+    margin-right: 15px;
+  }
+  
+  /*검색박스*/
+  
+.search-container{
+	 	display : flex;
+	 	justify-content: center;
+	 	align-items: center;
+ }
+.search-box{
+	 background: #fff;
+	 height: 50px;
+	 border-radius: 40px;
+	 padding : 10px;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 border : 1px solid #e1e1e1;
+  
+}
+.search-btn{
+	  color : #fff;
+	  float : right;
+	  width : 40px;
+	  height: 40px;
+	  border-radius: 50%;
+	  background: #FF6B6B;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+}
+    
+.search-txt{
+	  border: none;
+	  background: none;
+	  outline: none;
+	  float : left;
+	  padding: 0;
+	  color : black;
+	  font-size : 16px;
+	  transition: 0.4s;
+	  line-height: 30px;
+	  width : 300px;
+}
+.search-box:hover > .search-txt{
+		width : 330px;
+		height: 55px;
+}
+/*페이징 버튼*/
+.paging-box{
+	border-top : 1px solid #e1e1e1;
+	padding-top : 2rem;
+	padding-bottom : 3rem;
+	display: flex;	
+	justify-content: center;
+	font-size : 1.3rem;
+}
+.paging-box span{
+	display: inline-block;
+	width : 50px;
+	height: 50px;	
+	border:1px solid #e1e1e1;
+	text-align: center;
+	line-height: 50px;
+	color : #5B646E;
+	margin: 0.3rem;
+}
+.paging-box span:hover {
+	border : 1px solid #FF6B6B;
+	background: #FF6B6B;
+	cursor: pointer;
+	color : white;
+}
+
+.paging-box #current-page{
+	border : 1px solid #FF6B6B;
+	color : white;
+	background: #FF6B6B;
+}
+
+
+
+
+
