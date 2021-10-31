@@ -38,7 +38,36 @@
 			</div>
 			
 			 
+			<c:if test="${dto.member_no ne null}">
+			<c:set var="like" value="${like}"/>
 			
+				<c:choose>
+					<c:when test="${!empty like}">
+						
+							<c:forEach var="r" items="${like}"> 
+							<form action="/dislike">
+								 <input type="hidden" name="campsiteNo"
+									value="${r.campsiteNo}"><br>
+								 <input type="hidden" name="memberNo" value="${r.memberNo}"><br>
+								 <input type="hidden" name="likeYn" value="${r.likeYn}"><br>
+								 <input type="hidden" name="likeYn" value="${r.likeCn}"><br>
+								<input class="like-btn" type="submit" value="❤">
+							 </form>
+							 </c:forEach>
+					</c:when>
+					
+					<c:otherwise>
+						<form action="/like">
+								<input type="hidden" name="campsiteNo"
+									value="${campsite.campsiteNo}"><br>
+								<input type="hidden" name="memberNo" value="${dto.member_no}"><br>
+								<input type="hidden" name="likeYn" value="1"><br>
+								<input type="hidden" name="likeCn" value="1"><br>
+								<input class="like-btn" type="submit" value="🤍">
+							</form>
+					</c:otherwise>
+				</c:choose>
+			</c:if>
 			
 			<hr class="top-line">
 			<div class="camp-main-div">
@@ -548,38 +577,7 @@
 	<!--==============================================================================-->
  
 				
-			<c:if test="${dto.member_no ne null}">
-			<c:set var="like" value="${like}"/>
 			
-				<c:choose>
-					<c:when test="${!empty like}">
-						<h1>값이있음</h1>
-						
-							<c:forEach var="r" items="${like}"> 
-							<form action="/dislike">
-								캠핑장번호 : <input type="text" name="campsiteNo"
-									value="${r.campsiteNo}"><br>
-								회원번호 : <input type="text" name="memberNo" value="${r.memberNo}"><br>
-								좋아요 여부 (0이면 안좋아 / 1이면 좋아): <input type="text" name="likeYn" value="${r.likeYn}"><br>
-								좋아요 개수 : <input type="text" name="likeYn" value="${r.likeCn}"><br>
-								<input type="submit" value="♥">
-							 </form>
-							 </c:forEach>
-					</c:when>
-					
-					<c:otherwise>
-						<h1>값이업음</h1>
-						<form action="/like">
-								캠핑장번호 : <input type="text" name="campsiteNo"
-									value="${campsite.campsiteNo}"><br>
-								회원번호 : <input type="text" name="memberNo" value="${dto.member_no}"><br>
-								좋아요 여부 (0이면 안좋아 / 1이면 좋아): <input type="text" name="likeYn" value="1"><br>
-								좋아요 갯수: <input type="text" name="likeCn" value="1"><br>
-								<input type="submit" value="♡">
-							</form>
-					</c:otherwise>
-				</c:choose>
-			</c:if>
 				 
 		 
 
