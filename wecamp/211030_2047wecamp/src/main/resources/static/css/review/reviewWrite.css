@@ -1,0 +1,146 @@
+@charset "UTF-8";
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+/* Filename : css/common.css */
+
+.body {
+    font-family: "Spoqa Han Sans Neo", "Sans-serif";
+ }
+
+/* 전체 div */
+.first-body{
+	margin: auto;
+	text-align: center;
+
+}
+
+.second-body{
+margin: auto;
+	text-align: left;
+	width: 30%;
+}
+
+.column-box{
+	margin-top: 1rem;
+}
+
+#content {
+	margin-left: 3.7rem;
+	width:200px;
+	height:100px;
+	 
+	border-radius: 0.5rem;
+}
+
+#campsiteNo{
+	width:200px;
+	height:40px;
+	border-radius: 0.5rem;
+	text-align: center;
+}
+
+.review-column{
+	font-size: 20px;
+    margin-right: 1.7rem;
+}
+
+.review-column-star{
+	font-size: 20px;
+    margin-right: 1.7rem;
+    float: left;
+    margin-top: 1rem;
+	
+}
+
+.star-box {
+	margin-top: 1rem;
+}
+
+#submit-btn{
+	width: 10%;
+	height: 33px;
+	margin-top: 2rem;
+}
+
+/* ==================================별점==================================*/
+div#fcl fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+}
+div#fcl fieldset legend{
+    text-align: left;
+}
+div#fcl input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+div#fcl label{
+    font-size: 2em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+div#fcl label:hover{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 호버 */
+}
+div#fcl label:hover ~ label{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+div#fcl input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 클릭 체크 */
+}
+
+/*-------------------------*/
+ div#env fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+}
+div#env fieldset legend{
+    text-align: left;
+}
+div#env input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+div#env label{
+    font-size: 2em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+div#env label:hover{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 호버 */
+}
+div#env label:hover ~ label{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+div#env input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 클릭 체크 */
+}
+
+/*-------------------------*/
+ div#ser fieldset{
+    display: inline-block; /* 하위 별점 이미지들이 있는 영역만 자리를 차지함.*/
+    direction: rtl; /* 이모지 순서 반전 */
+    border: 0; /* 필드셋 테두리 제거 */
+}
+div#ser fieldset legend{
+    text-align: left;
+}
+div#ser input[type=radio]{
+    display: none; /* 라디오박스 감춤 */
+}
+div#ser label{
+    font-size: 2em; /* 이모지 크기 */
+    color: transparent; /* 기존 이모지 컬러 제거 */
+    text-shadow: 0 0 0 #f0f0f0; /* 새 이모지 색상 부여 */
+}
+div#ser label:hover{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 호버 */
+}
+div#ser label:hover ~ label{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 호버 뒤에오는 이모지들 */
+}
+
+div#ser input[type=radio]:checked ~ label{
+    text-shadow: 0 0 0 #FFBF00; /* 마우스 클릭 체크 */
+}
