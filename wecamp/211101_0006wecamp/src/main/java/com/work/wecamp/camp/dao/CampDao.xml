@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.work.wecamp.camp.dao.CampDao">
+
+<insert id="insertCampsite">
+	INSERT INTO campsite
+		(campsite_no,faclt_nm,line_intro,detail_intro,induty,
+		lct_cl,do_nm,sigungu,zipcode,addr1,addr2,lon,lat,tel,homepage,resve_url,
+		glamp_inner,caravan_inner,operation_p,operation_d,trler_yn,carav_yn,
+		sbrs_cl,sbrs_etc,posbl_fcl,thema_env,animal_cmg,thumbnail)
+		VALUES(
+				#{campsiteNo},
+				#{facltNm},
+				#{lineIntro},
+				#{detailIntro},
+				#{induty},
+				#{lctCl},
+				#{doNm},
+				#{sigungu},
+				#{zipcode},
+				#{addr1},
+				#{addr2},
+				#{lon},
+				#{lat},
+				#{tel},
+				#{homepage},
+				#{resveUrl},
+				#{glampInner},
+				#{caravanInner},
+				#{operationP},
+				#{operationD},
+				#{trlerYn},
+				#{caravYn},
+				#{sbrsCl},
+				#{sbrsEtc},
+				#{posblFcl},
+				#{themaEnv},
+				#{animalCmg},
+				#{thumbnail}
+			)
+</insert>
+
+<select id="selectSigungu" resultType="map" parameterType="string">
+	SELECT sigungu,TO_CHAR(count(sigungu)) sigungu_count
+	FROM campsite 
+	GROUP BY do_nm,sigungu
+	HAVING do_nm = #{doNm}
+	ORDER BY sigungu
+</select>
+
+<select id="selectDoSiCampsite" resultType="map" parameterType="hashMap">
+	SELECT 
+		campsite_no,
+		faclt_nm,
+		line_intro,
+		induty,
+		lct_cl,
+		addr1,
+		lon,
+		lat,
+		tel,
+		thumbnail
+	FROM campsite WHERE do_nm=#{doNm} AND sigungu=#{sigungu}
+</select>
+
+<select id="totalCount" resultType="int">
+SELECT COUNT(campsite_no) 
+FROM campsite
+<!-- 수정 -->
+</select>
+
+<select id="selectCampsiteAll" resultType="map" parameterType="int">
+SELECT  X.*
+FROM
+	(
+        SELECT ROWNUM as rnum,A.*
+        FROM
+        (
+            SELECT * 
+            FROM campsite 
+            ORDER BY campsite_no DESC) A
+        WHERE <![CDATA[ROWNUM <= #{endCount}]]>
+     <!-- 수정 -->
+        ) X
+WHERE <![CDATA[X.rnum >= #{startCount}]]>	
+</select>		
+
+</mapper>
