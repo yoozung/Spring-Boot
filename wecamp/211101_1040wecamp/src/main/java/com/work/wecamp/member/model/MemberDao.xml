@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.work.wecamp.member.model.MemberDao">
+
+<!-- public String login(String memberId, String memberPw); -->
+  <select id="login" resultType="String" parameterType="map">
+    select username from member where memberId = #{memberId} and memberPw =#{memberPw}
+  </select>
+  
+  <!--  public int insertMember(Member dto) -->
+  <insert id="insertMember" parameterType="Member">
+    insert into member(member_no, memberId, memberPw, username, mobile, email) 
+    values(MEMBER_SEQ.nextval, #{memberId}, #{memberPw}, #{username}, #{mobile}, #{email})
+  </insert>
+  
+  <!--  public int deleteMember(Member dto) -->
+  <delete id="deleteMember" parameterType="Member">
+    delete from member where memberId = #{memberId} and memberPw = #{memberPw}
+  </delete>
+  
+  <select id="loginToMember" resultType="Member">
+  	select * from member where memberId = #{memberId} and memberPw =#{memberPw}
+  </select>
+  
+  <resultMap type="Member" id="privacy">
+  	<result property="memberId" column="memberId"></result>
+  	<result property="memberPw" column="memberPw"></result>	
+  </resultMap>
+  
+  <!-- public Member selectOneToDto(String loginMemberId);  -->
+ <select id="selectOneToDto" resultMap="privacy">
+  	select * from member where memberId = #{memberId}
+  </select>
+  
+  
+  
+  <!-- public int updateMemberPw(String memberId, String memberPw, String name, String mobile, String email); -->
+  <update id="updateMemberPw" parameterType="Member">
+  	 update member set memberPw=#{memberPw}, username=#{username}, mobile=#{mobile}, email=#{email} where memberId=#{memberId}
+  </update>
+  
+  <!-- public String idCheck(String memberId); -->
+  <select id="idCheck" resultType="String">
+  	select memberId from member where memberId = #{memberId}
+  </select>
+ 
+ </mapper>
